@@ -21,6 +21,8 @@ public class TSSolution3 {
         }
         throw new IllegalArgumentException("NO two sum solution");
     }
+/*时间复杂度O(n)
+* 空间复杂度O(n)*/
 
     public static void main(String[] args) {
         int[] nums1 = {4, 5, 6, 10};
