@@ -12,5 +12,4 @@ public class ListNode {
     ListNode(int x){
         val = x;//赋值链表的值
     }
-
 }

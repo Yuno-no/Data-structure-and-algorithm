@@ -37,7 +37,7 @@ public class ATNSolution {
     }
 
     /*时间复杂度：O(max(m,n))，假设 mm 和 nn 分别表示 l1l1 和 l2l2 的长度，上面的算法最多重复max(m,n) 次。
-    空间复杂度：O(max(m,n))， 新列表的长度最多为max(m,n)+1。*/
+    空间复杂度：O(max(m,n))，新列表的长度最多为max(m,n)+1。*/
 
 
     public static void main(String[] args) {
