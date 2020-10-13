@@ -11,7 +11,7 @@ public class HuanFang {
     int n;//设置幻方阶数
     public HuanFang(int n){
         this.n = n;
-        int r = 0;
+        int r = 0;//从第一行开始
         int c = n / 2;//从第一行中间的列开始填
         int num = 1;//设置第一位数
         int array[][] = new int[n][n];//创建n*n的数组
@@ -20,7 +20,7 @@ public class HuanFang {
             r = (r - 1 + n) % n;
             c = (c + 1 ) % n;//往右上角填幻方
             if(array[r][c] != 0){
-                //遇到已被填的方格向下平移两行，向左一列开始填
+                //遇到不为空的方格向下平移两行，再向左一列开始填
                 r = (r + 2) % n;
                 c = (c - 1 + n) % n;
             }
@@ -29,6 +29,7 @@ public class HuanFang {
         huanfang = array;
     }
     public void get(){
+        //获取幻方阶数，并打印出来
         System.out.println("所求的幻方阶数为" + n + "阶");
     }
     public void print(){
