@@ -1,4 +1,4 @@
-package huanfang;
+package huanFang;
 
 import java.util.Scanner;
 
