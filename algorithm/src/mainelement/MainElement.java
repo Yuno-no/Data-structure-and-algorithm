@@ -11,7 +11,7 @@ public class MainElement {
         this.nums = nums;
         int len = nums.length;
         for (int i = 0; i < len; i++){
-            nums[nums[i]%len] = nums[nums[i]%len] + len;
+            nums[nums[i] % len] = nums[nums[i] % len] + len;
         }
     }
     public void printME(){
@@ -25,7 +25,7 @@ public class MainElement {
     }
 
     public static void main(String[] args) {
-        int[] nums = {8, 6, 8, 7, 1, 8, 8, 7, 8, 6, 8, 4, 4, 8, 8, 8, 2};
+        int[] nums = {5, 4, 4, 3, 4};
         MainElement mainelement = new MainElement(nums);
         mainelement.printME();
     }
