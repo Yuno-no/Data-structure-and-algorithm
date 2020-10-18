@@ -14,6 +14,7 @@ public class MainElement {
             nums[nums[i] % len] = nums[nums[i] % len] + len;
         }
     }
+
     public void printME(){
         for (int i = 0; i < nums.length; i++){
             if ((nums[i] / nums.length) > (nums.length/ 2)){
