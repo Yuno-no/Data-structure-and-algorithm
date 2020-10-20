@@ -50,7 +50,7 @@ public class CirLeftMove {
             System.out.println("请输入大于0的整数");
             k = sc.nextInt();
         }
-        System.out.println("循环" + k + "位后的数组为：");
+        System.out.println("循环左移" + k + "位后的数组为：");
         CirLeftMove c = new CirLeftMove(nums, k);
         c.move();
     }
