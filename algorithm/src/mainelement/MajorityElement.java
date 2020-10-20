@@ -10,7 +10,7 @@ import java.util.Scanner;
 //摩尔投票法求主元
 public class MajorityElement {
     int nums[];
-    public MajorityElement(int nums[]){
+    public MajorityElement(int nums[]) {
         this.nums = nums;
     }
 
@@ -46,8 +46,6 @@ public class MajorityElement {
     }
 
     public static void main(String[] args) {
-        /*int[] nums = {1, 2, 5, 9, 5, 9, 5, 5, 5};*/
-        /*int[] nums = {2, 2, 1, 1, 1, 2, 2};*/
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入数组的长度");
         int n = sc.nextInt();
