@@ -1,5 +1,7 @@
 package linkedList;
 
+import java.util.Scanner;
+
 /**
  * @author Yuno
  * @create 2020/10/21-21:33
@@ -34,17 +36,28 @@ public class DelAbsSame {
         return p;
     }
     public static void main(String[] args) {
-        int[] nums = {2, -2, 1, 3, 4, 2};
         LinkedList head = new LinkedList();//构造头结点
+        System.out.println("请输入你要压缩的链表长度");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("请按顺序输入链表的每一个结点的数据域");
+
+        //为链表的每个结点赋值
         LinkedList p = head;
-        for (int num : nums) {
-            p.next = new LinkedList(num, null);
+        for(int i = 0; i < n; i++){
+            System.out.println("第" + (i + 1) + "个结点的数据为：");
+            int data = sc.nextInt();
+            p.next = new LinkedList(data, null);
             p = p.next;
         }
-        DelAbsSame.delAbsSame(head);
-        while (head != null) {
-            System.out.print(head.toString() + "\t");
-            head = head.next;
+        System.out.println("压缩后的链表为：");
+
+        delAbsSame(head);//调用静态方法压缩链表
+        LinkedList p1 = head;
+        //遍历输出压缩后的链表
+        while(p1!= null) {
+            System.out.print(p1.toString() + "\t");
+            p1 = p1.next;
         }
     }
 }
