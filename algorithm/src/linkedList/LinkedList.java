@@ -40,7 +40,7 @@ public class LinkedList {
         LinkedList cur = head;
         while (cur != null){
             LinkedList temp = cur.next;//temp指针用于存放cur下个结点的地址域
-            cur.next = pre;//让cur的next指向pre，实现以下局部反转
+            cur.next = pre;//让cur的next指向pre，实现局部反转
             //pre和cur分别往后移动一位
             pre = cur;
             cur = temp;
