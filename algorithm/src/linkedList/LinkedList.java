@@ -3,6 +3,7 @@ package linkedList;
 import addTwoNumbers.ListNode;
 
 import javax.management.DynamicMBean;
+import java.util.Scanner;
 
 /**
  * @author Yuno
@@ -34,11 +35,13 @@ public class LinkedList {
     }
 
     public static LinkedList reverseList(LinkedList head){
+        //创建两个两个相邻指针，pre在前，cur在后
         LinkedList pre = null;
         LinkedList cur = head;
         while (cur != null){
-            LinkedList temp = cur.next;
-            cur.next = pre;
+            LinkedList temp = cur.next;//temp指针用于存放cur下个结点的地址域
+            cur.next = pre;//让cur的next指向pre，实现以下局部反转
+            //pre和cur分别往后移动一位
             pre = cur;
             cur = temp;
         }
@@ -46,17 +49,27 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5};
         LinkedList head = new LinkedList();//构造头结点
+        System.out.println("请输入你要反转的链表长度");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("请按顺序输入链表的每一个结点的数据域");
+
+        //为链表的每个结点赋值
         LinkedList p = head;
-        for (int num : nums) {
-            p.next = new LinkedList(num, null);
+        for(int i = 0; i < n; i++){
+            System.out.println("第" + (i + 1) + "个结点的数据为：");
+            int data = sc.nextInt();
+            p.next = new LinkedList(data, null);
             p = p.next;
         }
-        head = reverseList(head);
-        while (head != null) {
-            System.out.print(head.toString() + "\t");
-            head = head.next;
+        System.out.println("反转后的链表为：");
+
+        LinkedList p1 =  reverseList(head);//创建一个p1来指向反转后的链表
+        //遍历输出链表
+        while(p1 != null){
+            System.out.print(p1.toString() + "\t");
+            p1 = p1.next;
         }
     }
 }
