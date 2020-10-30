@@ -1,6 +1,8 @@
 package Rrute_Force;
 
+import java.awt.desktop.SystemEventListener;
 import java.lang.annotation.Target;
+import java.util.Scanner;
 
 /**
  * @author Yuno
@@ -50,8 +52,17 @@ public class Brute_Force {
     }
 
     public static void main(String[] args) {
-        String str1 = "abcdee";
-        String str2 = "ee";
-        System.out.println(new Brute_Force(str1, str2).indexOf());
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入目标串:");
+        String target = sc.next();
+        System.out.println("请输入模式串：");
+        String pattern = sc.next();
+        Brute_Force bf = new  Brute_Force(target, pattern);
+        int n = bf.indexOf();
+        if (n != -1){
+            System.out.println("匹配到的字符串位于目标串的" + n + "下标位置");
+        }else{
+            System.out.println("未匹配到字符串");
+        }
     }
 }
