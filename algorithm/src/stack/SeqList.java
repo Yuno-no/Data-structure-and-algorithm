@@ -124,7 +124,8 @@ public class SeqList<T> extends Object {
         this.n = 0;
     }
 
-    public int search(T key){//在this引用的顺序表中，顺序表查找首个与key相等的元素，返回元素序号i，0<=i<n；若查找不成功，返回-1
+    public int search(T key){
+    //在this引用的顺序表中，顺序表查找首个与key相等的元素，返回元素序号i，0<=i<n；若查找不成功，返回-1
         for (int i = 0; i < this.n; i++){
             if (key.equals(this.element[i])){
                 return i;

@@ -59,34 +59,33 @@ public class ArithExpression {
         return postfix;
     }
 
-    public static int toValue(StringBuffer postfix){
+    public static int toValue(StringBuffer postfix){//计算后缀表达式的值
         Stack<Integer> stack = new LinkedStack<Integer>();//操作数栈，链式栈
         int value = 0;
         for(int i = 0; i < postfix.length(); i++){//逐个检查后缀表达式中的字符
             char ch = postfix.charAt(i);
-            if(ch >= '0' && ch <= '9'){
+            if(ch >= '0' && ch <= '9'){//遇到数字字符
                 value = 0;
-                while(ch >= '0' && ch <= '9'){
+                while(ch >= '0' && ch <= '9'){//将整数字符串转换为整数型，没有符号，以空格结束
                     value = value * 10 + ch - '0';
                     ch = postfix.charAt(++i);
                 }
-                stack.push(value);
+                stack.push(value);//new Integer（value）整数对象入栈，java自动将int整数封装成Integer对象
             }
             else{
-                if(ch != ' '){
+                if(ch != ' '){//约定操作数后有一个空格分隔
                     int y = stack.pop(), x = stack.pop();
-                    value = operators.operate(x, y, ch + "");
-                    System.out.print(x + (ch + "") + y + "=" + value + ", ");
-                    stack.push(value);
+                    value = operators.operate(x, y, ch + "");//根据运算符分别计算
+                    System.out.print(x + (ch + "") + y + "=" + value + ", ");//显示运算过程
+                    stack.push(value);//运算结果入栈
                 }
             }
         }
-        return stack.pop();
+        return stack.pop();//返回运算结果
     }
 
     public static void main(String[] args) {
-        Operators o = new Operators();
-        int value = ArithExpression.toValue(new StringBuffer("10 30 40 + -"));
+        int value = ArithExpression.toValue(new StringBuffer("1 2 3 4 - * + 5 +"));
         System.out.println(value);
     }
 }

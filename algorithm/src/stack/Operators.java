@@ -28,6 +28,8 @@ public class Operators implements Comparator<String> {
                 break;
             case "-": value = x - y;
                 break;
+            case "*": value = x * y;
+                break;
             case "/": value = x / y;
                 break;
             case "%": value = x % y;

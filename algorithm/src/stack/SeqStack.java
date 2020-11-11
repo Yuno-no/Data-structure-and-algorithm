@@ -1,5 +1,7 @@
 package stack;
 
+import java.sql.SQLOutput;
+
 /**
  * @author Yuno
  * @create 2020/11/8-15:21
@@ -30,5 +32,18 @@ public final class SeqStack<T> implements Stack<T>{
 
     public T pop(){
         return list.move(list.size()-1);//若栈不空，则顺序表尾删除，返回删除元素
+    }
+
+    public static void main(String[] args) {
+        SeqStack<String> mystack = new SeqStack<>();
+        System.out.println(mystack.peek());
+        System.out.println(mystack.isEmpty());
+        mystack.push("java");
+        mystack.push("is");
+        mystack.push("beautiful");
+        mystack.push("language");
+        System.out.println(mystack.pop());
+        System.out.println(mystack.isEmpty());
+        System.out.println(mystack.peek());
     }
 }
