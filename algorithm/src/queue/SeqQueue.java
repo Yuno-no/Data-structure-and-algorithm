@@ -56,4 +56,15 @@ public final class SeqQueue<T> implements Queue<T> {
         this.front = (this.front + 1) % this.element.length;
         return temp;
     }
+
+    public String toString(){//返回所有元素的描述字符串
+        String str = "(";
+        if (!this.isEmpty()){
+            str += this.element[this.front].toString();
+        }
+        for (int i = this.front + 1; i != (this.rear) % this.element.length; i = (i + 1) % this.element.length){
+            str += "," + this.element[i].toString();
+        }
+        return str += ")";
+    }
 }
