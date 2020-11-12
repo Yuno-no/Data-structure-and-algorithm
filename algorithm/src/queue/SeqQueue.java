@@ -4,12 +4,12 @@ package queue;
  * @author Yuno
  * @create 2020/11/11-15:19
  */
-public final class SeqQueen<T> implements Queue<T> {
+public final class SeqQueue<T> implements Queue<T> {
     private Object[] element;//存储队列数据元素的数组
     private int front,rear;//front,rear分别为队列头尾下标
     private static final int MIN_CAPACITY = 16;//常量，指定element数组容量的最小值
 
-    public SeqQueen(int length){
+    public SeqQueue(int length){
         if (length < MIN_CAPACITY){
             length = MIN_CAPACITY;//设置数组容量最小值
         }
@@ -17,7 +17,7 @@ public final class SeqQueen<T> implements Queue<T> {
         this.front = this.rear = 0;//设置空队列
     }
 
-    public SeqQueen(){//构造空队列，默认容量
+    public SeqQueue(){//构造空队列，默认容量
         this(MIN_CAPACITY);//默认队列数组容量取最小值
     }
 

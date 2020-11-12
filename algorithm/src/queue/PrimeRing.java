@@ -9,7 +9,7 @@ import stack.SinglyList;
 public class PrimeRing {//求解素数环问题
     //求解1~n素数环问题，n = values.length，value[]提供1~n初始序列
     public PrimeRing(Integer[] values){
-        Queue<Integer> que = new SeqQueen<Integer>(values.length + 1);//创建空队列
+        Queue<Integer> que = new SeqQueue<Integer>(values.length + 1);//创建空队列
         for (int i = 0; i < values.length; i++){
             que.add(values[i]);//values[]元素全部入队
         }
