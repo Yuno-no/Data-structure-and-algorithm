@@ -67,4 +67,16 @@ public final class SeqQueue<T> implements Queue<T> {
         }
         return str += ")";
     }
+
+    public static void main(String[] args) {
+        SeqQueue<Integer> queue = new SeqQueue<Integer>();
+        System.out.println(queue.isEmpty());
+        System.out.println(queue.add(1));
+        System.out.println(queue.isEmpty());
+        System.out.println(queue.peek());
+        System.out.println(queue.add(2));
+        System.out.println(queue.peek());
+        System.out.println(queue.poll());
+        System.out.println(queue.peek());
+    }
 }
