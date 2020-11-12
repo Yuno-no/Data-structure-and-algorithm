@@ -58,6 +58,13 @@ public class SinglyList<T> extends Object {//单链表类
         return i;
     }
 
+    public String toString(){
+        String str = this.getClass().getName() + "(";
+        for (Node<T> p = this.head.next; p != null; p = p.next){
+            str += p.data.toString() + (p.next != null ? "," : "");
+        }
+        return str + ")";
+    }
     public Node<T> insert(int i, T x){
         if (x == null){
             return null;
@@ -66,10 +73,14 @@ public class SinglyList<T> extends Object {//单链表类
         for (int j = 0; front.next != null && j < i; j++){//寻找第i-1个或最后一个节点
             front = front.next;
         }
-        front.next = new Node<T>(x, front.next);
+        front.next = new Node<T>(x, front.next);//在ftont后插入值为x的结点，包括头插入，中间插入，尾插入
         return front.next;
     }
 
+    public Node<T> insert (T x){
+        //调用insert(i, x),用整数的对大值指定插入在最后，遍历一次，i必须容错
+        return insert(Integer.MAX_VALUE, x);
+    }
 
     //删除
     public T remove(int i){//删除第i个元素，0 <= i <长度，返回被删除元素。若i越界，则返回null
@@ -88,4 +99,5 @@ public class SinglyList<T> extends Object {//单链表类
     public void clear(){//清空单链表
         this.head.next = null;
     }
+
 }
