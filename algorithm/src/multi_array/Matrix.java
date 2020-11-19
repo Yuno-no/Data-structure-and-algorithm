@@ -1,7 +1,5 @@
 package multi_array;
 
-import javax.xml.transform.Source;
-import java.awt.*;
 
 /**
  * @author Yuno
