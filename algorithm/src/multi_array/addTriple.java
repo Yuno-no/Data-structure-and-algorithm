@@ -7,15 +7,20 @@ import java.util.ArrayList;
  * @create 2020/11/19-19:54
  */
 public class addTriple {
-    public static int[][] addTriple(Triple[] a, Triple[] b){
-        ArrayList<Triple> c = new ArrayList<Triple>();
+    public static int[][] addTriple(Triple[] a, Triple[] b, int m, int n){//传入两个三元组数组和其对应的行数和列数
+        ArrayList<Triple> c = new ArrayList<Triple>();//利用数组队列存储相加后的三元组
         int i = 0, j = 0;
         while(i < a.length && j < b.length){
+            //遍历两个三元组数组，并对其判断相加;当两个指针都分别指向每个数组的最后一个元素时停止
             if (a[i].row == b[j].row && a[i].column == b[j].column){
+                //当两个三元组行列相等时
+                //对其值相加并将得到的新三元组加入ArrayList
                 c.add(new Triple(a[i].row, a[i].column, a[i].value + b[j].value));
                 i++;
                 j++;
-            }else if ((a[i].row == b[j].row && a[i].column < b[j].column) || a[i].row < b[j].row){
+            }
+            //当两个三元组行列数不相等时进行判断，将靠前的三元组加入ArrayList
+            else if ((a[i].row == b[j].row && a[i].column < b[j].column) || a[i].row < b[j].row){
                 c.add(new Triple(a[i].row, a[i].column, a[i].value));
                 i++;
             }else if((a[i].row == b[j].row && b[j].column < a[i].column) || b[j].row < a[i].row){
@@ -23,9 +28,10 @@ public class addTriple {
                 j++;
             }
         }
-        int[][] matrix = new int[5][6];
-        for (int m = 0; m < c.size(); m++){
-            Triple temp = c.get(m);
+        //将ArrayList中的三元组化为矩阵，返回对应的二维数组
+        int[][] matrix = new int[m][n];
+        for (int x = 0; x < c.size(); x++){
+            Triple temp = c.get(x);
             matrix[temp.row][temp.column] = temp.value;
         }
         return matrix;
@@ -48,7 +54,8 @@ public class addTriple {
         Triple b5 = new Triple(4, 1, 23);
         Triple b6 = new Triple(4, 4, 0);
         Triple[] b = {b1, b2, b3, b4, b5, b6};
-        int[][] c = addTriple(a, b);
+        int[][] c = addTriple(a, b, 5, 6);
+        //输出相加后的矩阵
         for (int i = 0; i < c.length; i++){
             for (int j = 0; j < c[i].length; j++){
                 System.out.print(c[i][j] + "\t");

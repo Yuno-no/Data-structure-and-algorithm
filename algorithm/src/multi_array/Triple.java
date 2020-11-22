@@ -7,9 +7,9 @@ package multi_array;
 
 //三元组类
 public class Triple {
-    public int row;
-    public int column;
-    public int value;
+    public int row;//行数
+    public int column;//列数
+    public int value;//值
 
     public Triple(int row, int column, int value){//构造方法，为三元组的三个属性赋值
         if (row >= 0 && column >= 0){
